@@ -36,12 +36,12 @@ Device will be constantly spamming packet with this data
 
 ![](https://kroki.io/packetdiag/svg/eNorSEzOTi1JyUxMV6jmUlDIy09Jjc9IzUzPKFGwVTAzsOYCCmopBGem5ylAQHROap6toY5CUX5JYkmqrZG5Qaw1SFxfH6wKrDwcYgBcuRFECTIAKoeoAmsIzcssKSZoPkgVxDkliUk5qQSdk1pSkpOawlXLxcUFAOOQPE8=)
 
-| Field  | Description                                                                                 | Note                                                            |
-| ------ | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------- |
-| Sign   | `0x00` (positive) / `0x01` (negative)                                                       |                                                                 |
-| Weight | 16 bit int (big-endian)                                                                     | In grams value is multiplied by 10 (not sure about other units) |
-| Unit   | `0x00`(g),`0x02`(ml),`0x04`(ml milk),`0x03`(floz),`0x05`(floz milk),`0x06`(oz),`0x01`(lboz) | Does not seem like bitmask just enum                            |
-| Stable | `0x00` (measuring) / `0x01` (settled)                                                       | `0x00` means weight is not yet settled                          |
+| Field  | Description                                                                                 | Note                                                                                       |
+| ------ | ------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------|
+| Sign   | `0x00` (positive) / `0x01` (negative)                                                       |                                                                                            |
+| Weight | 16 bit int (big-endian)                                                                     | Value is multiplied by 10 for g, ml, ml milk and 100 for fl oz, fl oz milk, oz, and lb oz. |
+| Unit   | `0x00`(g),`0x02`(ml),`0x04`(ml milk),`0x03`(floz),`0x05`(floz milk),`0x06`(oz),`0x01`(lboz) | Does not seem like bitmask just enum                                                       |
+| Stable | `0x00` (measuring) / `0x01` (settled)                                                       | `0x00` means weight is not yet settled                                                     |
 
 ##### Data Packet: Set Nutrition
 
